@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Hweny.FlappyGuy.Scene;
 using System.Drawing;
+
 using Hweny.FlappyGuy.Main;
+using Hweny.FlappyGuy.Scene;
 using Hweny.FlappyGuy.Entity;
 
 namespace Hweny.FlappyGuy
