@@ -27,16 +27,19 @@ namespace Hweny.FlappyGuy.Scene
 
             offsetX = (MyGame.WIDTH - MyGame.ASSETS_GAMEOVER.Width) >> 1;
         }
+
         public override void OnEnter()
         {
             base.OnEnter();
             offsetY = 0;
         }
+
         public override void Update(float gameTime, float elapsedSeconds)
         {
             if (offsetY < 80)
                 offsetY += 100 * elapsedSeconds;
         }
+
         public override void Render(System.Drawing.Graphics g)
         {
             g.Clear(System.Drawing.Color.FromArgb(60, 60, 60));
@@ -68,18 +71,22 @@ namespace Hweny.FlappyGuy.Scene
             if (e.Button == MouseButtons.Left)
                 this.Gsm.Pop();
         }
+
         public void MouseMoved(MouseEventArgs e)
         {
         }
+
         public void MouseReleased(MouseEventArgs e)
         {
 
         }
+
         public void KeyPressed(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W)
                 Gsm.Pop();
         }
+
         public void KeyReleased(KeyEventArgs e)
         {
         }

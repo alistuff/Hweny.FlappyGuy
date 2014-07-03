@@ -14,10 +14,12 @@ namespace Hweny.FlappyGuy.Scene
         {
             AddKeyListener(this);
         }
+
         public override void Update(float gameTime, float elapsedSeconds)
         {
 
         }
+
         public override void Render(Graphics g)
         {
             g.Clear(Color.Black);
@@ -41,6 +43,7 @@ namespace Hweny.FlappyGuy.Scene
         {
             Gsm.Replace(MyGame.SCENE_PLAY);
         }
+
         public void KeyReleased(System.Windows.Forms.KeyEventArgs e)
         {
 

@@ -94,12 +94,16 @@ namespace Hweny.FlappyGuy.Main
         }
 
         protected abstract void LoadContent();
+
         protected abstract void UnLoadContent();
+
         protected abstract void Initialize();
+
         protected virtual void Update(float gameTime, float elapsedSeconds)
         {
             Gsm.Update(gameTime,elapsedSeconds);
         }
+
         protected virtual void Render(Graphics g)
         {
             Gsm.Render(g);
@@ -116,10 +120,12 @@ namespace Hweny.FlappyGuy.Main
 
             bufferBitmap = new Bitmap(Width, Height);
         }
+
         private void Window_WndUpdate(object sender, UpdateFrameEventArgs e)
         {
             Update(e.GameTime, e.ElapsedSeconds);
         }
+
         private void Window_WndRender(object sender, RenderFrameEventArgs e)
         {
             //draw to buffer bitmap
@@ -131,6 +137,7 @@ namespace Hweny.FlappyGuy.Main
             Graphics screen = e.Graphics;
             screen.DrawImageUnscaled(bufferBitmap, 0, 0);
         }
+
         private void Window_WndCleanup(object sender, EventArgs e)
         {
             UnLoadContent();
@@ -139,22 +146,27 @@ namespace Hweny.FlappyGuy.Main
 
             Gsm = null;
         }
+
         private void Window_WndKeyDown(object sender, KeyEventArgs e)
         {
             Gsm.OnKeyPressed(e);
         }
+
         private void Window_WndKeyUp(object sender, KeyEventArgs e)
         {
             Gsm.OnKeyReleased(e);
         }
+
         private void Window_WndMouseDown(object sender, MouseEventArgs e)
         {
             Gsm.OnMousePressed(e);
         }
+
         private void Window_WndMouseMove(object sender, MouseEventArgs e)
         {
             Gsm.OnMouseMoved(e);
         }
+
         private void Window_WndMouseUp(object sender, MouseEventArgs e)
         {
             Gsm.OnMouseReleased(e);

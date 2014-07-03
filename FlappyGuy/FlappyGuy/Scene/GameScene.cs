@@ -20,16 +20,19 @@ namespace Hweny.FlappyGuy.Scene
         public abstract void Render(System.Drawing.Graphics g);
 
         public virtual void OnEnter() { }
+
         public virtual void OnLeave() { }
 
         public IEnumerable<IMouseListener> MouseListeners
         {
             get { return mouseListeners; }
         }
+
         public IEnumerable<IKeyListener> KeyListeners
         {
             get { return keyListeners; }
         }
+
         public void AddKeyListener(IKeyListener listener)
         {
             if (keyListeners.Contains(listener))
@@ -37,6 +40,7 @@ namespace Hweny.FlappyGuy.Scene
 
             keyListeners.Add(listener);
         }
+
         public void AddMouseListener(IMouseListener listener)
         {
             if (mouseListeners.Contains(listener))

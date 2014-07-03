@@ -39,6 +39,7 @@ namespace Hweny.FlappyGuy.Scene
             scene.Initialize();
             scenes.Add(key, scene);
         }
+
         public void Remove(string key)
         {
             if (scenes.Keys.Contains(key))
@@ -55,6 +56,7 @@ namespace Hweny.FlappyGuy.Scene
             Pop();
             Push(sceneKey);
         }
+
         public void Push(string sceneKey)
         {
             if (!scenes.Keys.Contains(sceneKey))
@@ -67,6 +69,7 @@ namespace Hweny.FlappyGuy.Scene
             scene.OnEnter();
             stackScenes.Push(scene);
         }
+
         public void Pop()
         {
             if (TopScene != null)
@@ -88,6 +91,7 @@ namespace Hweny.FlappyGuy.Scene
                 TopScene.Update(gameTime, elapsedSeconds);
             }
         }
+
         public void Render(System.Drawing.Graphics g)
         {
             if (TopScene != null)
@@ -106,6 +110,7 @@ namespace Hweny.FlappyGuy.Scene
                 }
             }
         }
+
         public void OnKeyReleased(KeyEventArgs e)
         {
             if (TopScene != null)
@@ -116,6 +121,7 @@ namespace Hweny.FlappyGuy.Scene
                 }
             }
         }
+
         public void OnMousePressed(MouseEventArgs e)
         {
             if (TopScene != null)
@@ -126,6 +132,7 @@ namespace Hweny.FlappyGuy.Scene
                 }
             }
         }
+
         public void OnMouseMoved(MouseEventArgs e)
         {
             if (TopScene != null)
@@ -136,6 +143,7 @@ namespace Hweny.FlappyGuy.Scene
                 }
             }
         }
+
         public void OnMouseReleased(MouseEventArgs e)
         {
             if (TopScene != null)

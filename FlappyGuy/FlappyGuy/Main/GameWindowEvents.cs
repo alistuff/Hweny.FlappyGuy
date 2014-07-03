@@ -15,6 +15,7 @@ namespace Hweny.FlappyGuy.Main
             get;
             private set;
         }
+
         public UpdateFrameEventArgs(float gameTime, float elapsedSeconds)
         {
             this.GameTime = gameTime;
@@ -29,6 +30,7 @@ namespace Hweny.FlappyGuy.Main
             get;
             private set;
         }
+
         public RenderFrameEventArgs(Graphics g)
         {
             this.Graphics = g;

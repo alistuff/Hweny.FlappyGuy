@@ -80,6 +80,7 @@ namespace Hweny.FlappyGuy.Entity
                 }
             }
         }
+
         public override void Render(Graphics g)
         {
             GraphicsHelper.DrawImage
@@ -91,6 +92,7 @@ namespace Hweny.FlappyGuy.Entity
                 rotate
             );
         }
+
         public void Reset()
         {
             X = 100;
@@ -101,14 +103,17 @@ namespace Hweny.FlappyGuy.Entity
             isHit = false;
             isDie = false;
         }
+
         public void Flap()
         {
             isFlap = true;
         }
+
         public bool IsDie()
         {
             return isDie;
         }
+
         public Rectangle BoundingBox
         {
             get

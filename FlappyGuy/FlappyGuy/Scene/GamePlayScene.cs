@@ -58,6 +58,7 @@ namespace Hweny.FlappyGuy.Scene
             }
             WorldObjs.Add(player);
         }
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -84,6 +85,7 @@ namespace Hweny.FlappyGuy.Scene
             isReady = false;
             isGameOver = false;
         }
+
         public override void Update(float gameTime, float elapsedSeconds)
         {
             if (!isReady)
@@ -127,6 +129,7 @@ namespace Hweny.FlappyGuy.Scene
                 }
             }
         }
+
         public override void Render(Graphics g)
         {
             foreach (GameEntity obj in WorldObjs)
@@ -152,15 +155,19 @@ namespace Hweny.FlappyGuy.Scene
             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Space || e.KeyCode == Keys.W)
                 isReady = true;
         }
+
         public void KeyReleased(KeyEventArgs e) { }
+
         public void MousePressed(MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
                 isReady = true;
         }
+
         public void MouseMoved(MouseEventArgs e)
         {
         }
+
         public void MouseReleased(MouseEventArgs e)
         {
 

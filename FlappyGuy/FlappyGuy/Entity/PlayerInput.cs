@@ -24,14 +24,17 @@ namespace Hweny.FlappyGuy.Entity
                 player.Flap();
             }
         }
+
         public void MouseReleased(MouseEventArgs e)
         {
 
         }
+
         public void MouseMoved(MouseEventArgs e)
         {
 
         }
+
         public void KeyPressed(KeyEventArgs e)
         {
             if (!isKeyDown && (e.KeyCode == Keys.Up || e.KeyCode == Keys.W || e.KeyCode==Keys.Space))
@@ -40,6 +43,7 @@ namespace Hweny.FlappyGuy.Entity
                 player.Flap();
             }
         }
+
         public void KeyReleased(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W || e.KeyCode == Keys.Space)
