@@ -83,7 +83,7 @@ namespace Hweny.FlappyGuy.Scene
 
         public void KeyPressed(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W)
+            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W || e.KeyCode==Keys.Space)
                 Gsm.Pop();
         }
 
