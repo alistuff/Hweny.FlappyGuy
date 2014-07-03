@@ -26,12 +26,13 @@ namespace Hweny.FlappyGuy.Scene
             AddKeyListener(this);
 
             offsetX = (MyGame.WIDTH - MyGame.ASSETS_GAMEOVER.Width) >> 1;
+            offsetY = -MyGame.ASSETS_GAMEOVER.Height;
         }
 
         public override void OnEnter()
         {
             base.OnEnter();
-            offsetY = 0;
+            offsetY = -MyGame.ASSETS_GAMEOVER.Height;
         }
 
         public override void Update(float gameTime, float elapsedSeconds)
