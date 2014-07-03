@@ -24,3 +24,16 @@
 
 *编译该项目时请复制该文件夹到bin文件夹的Debug（调试模式）或Release（发布模式）文件夹中*
 ##Screenshots
+游戏场景：GameLogo动画场景、GameMenu菜单场景、GameReady场景、GamePlay场景、GameOver场景。
+
+###GameLogo
+![GameLogo](http://alistuff.com/usr/uploads/2014/07/3324034681.png "GameLogo")
+###GameMenu
+![GameMenu](http://alistuff.com/usr/uploads/2014/07/2683706080.png "GameMenu")
+###GameReady
+![GameReady](http://alistuff.com/usr/uploads/2014/07/1526530366.png "GameReady")
+###GamePlay
+![GamePlay](http://alistuff.com/usr/uploads/2014/07/4152560611.png "GamePlay")
+###GameOver
+![GameOver](http://alistuff.com/usr/uploads/2014/07/1980618891.png "GameOver")
+
