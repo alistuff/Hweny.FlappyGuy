@@ -2,6 +2,8 @@
 这是一个简单的2D游戏程序，基本上是游戏《FlappyBird》的克隆版本。
 
 **e-mail：alistuff#163.com (`#` to `@`)**
+
+[www.alistuff.com](www.alistuff.com)
 ##Implementation
 * Microsoft Visual Studio 2010 + .Net framework 4.0
 * C#
