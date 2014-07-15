@@ -45,7 +45,6 @@ namespace Hweny.FlappyGuy.Entity
 #endif
             }
         }
-
         public void Save(string fileName)
         {
             if (scoreRecord < HighScore) return;
@@ -66,19 +65,16 @@ namespace Hweny.FlappyGuy.Entity
 #endif
             }
         }
-
         public void Reset()
         {
             AdjustHighScore();
             Score = 0;
         }
-
         public void Increase()
         {
             Score += 1;
             AdjustHighScore();
         }
-
         public void Render(Graphics g)
         {
             using (Font font = new Font("微软雅黑", 35f, FontStyle.Bold))

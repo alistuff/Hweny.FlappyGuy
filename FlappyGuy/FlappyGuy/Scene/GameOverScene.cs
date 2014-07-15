@@ -25,32 +25,32 @@ namespace Hweny.FlappyGuy.Scene
             AddMouseListener(this);
             AddKeyListener(this);
 
-            offsetX = (MyGame.WIDTH - MyGame.ASSETS_GAMEOVER.Width) >> 1;
-            offsetY = -MyGame.ASSETS_GAMEOVER.Height;
+            var image = MyGame.Assets.GetImage(MyAssetsLoader.IM_GAMEOVER);
+            offsetX = (MyGame.WIDTH - image.Width) >> 1;
+            offsetY = -image.Height;
         }
-
         public override void OnEnter()
         {
             base.OnEnter();
-            offsetY = -MyGame.ASSETS_GAMEOVER.Height;
+            offsetY = -MyGame.Assets.GetImage(MyAssetsLoader.IM_GAMEOVER).Height;
         }
-
         public override void Update(float gameTime, float elapsedSeconds)
         {
             if (offsetY < 80)
-                offsetY += 100 * elapsedSeconds;
+                offsetY += 150 * elapsedSeconds;
         }
-
         public override void Render(System.Drawing.Graphics g)
         {
             g.Clear(System.Drawing.Color.FromArgb(60, 60, 60));
-            g.DrawImage(MyGame.ASSETS_GAMEOVER, offsetX, offsetY, MyGame.ASSETS_GAMEOVER.Width, MyGame.ASSETS_GAMEOVER.Height);
+
+            var image = MyGame.Assets.GetImage(MyAssetsLoader.IM_GAMEOVER);
+            g.DrawImage(image, offsetX, offsetY, image.Width, image.Height);
 
             if (offsetY >= 80)
             {
                 StringFormat format = new StringFormat();
                 format.Alignment = StringAlignment.Center;
-                Rectangle clipBound = new Rectangle(0, (int)(offsetY + MyGame.ASSETS_GAMEOVER.Height), MyGame.WIDTH, 200);
+                Rectangle clipBound = new Rectangle(0, (int)(offsetY + image.Height), MyGame.WIDTH, 200);
 
                 using (Font font = new Font("微软雅黑", 30f, FontStyle.Bold))
                 {
@@ -72,22 +72,18 @@ namespace Hweny.FlappyGuy.Scene
             if (e.Button == MouseButtons.Left)
                 this.Gsm.Pop();
         }
-
         public void MouseMoved(MouseEventArgs e)
         {
         }
-
         public void MouseReleased(MouseEventArgs e)
         {
 
         }
-
         public void KeyPressed(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W || e.KeyCode==Keys.Space)
+            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.W)
                 Gsm.Pop();
         }
-
         public void KeyReleased(KeyEventArgs e)
         {
         }

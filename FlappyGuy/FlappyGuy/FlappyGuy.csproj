@@ -52,9 +52,12 @@
     <Compile Include="Entity\Player.cs" />
     <Compile Include="Entity\PlayerInput.cs" />
     <Compile Include="Entity\ScoreRecord.cs" />
+    <Compile Include="Entity\Sprite.cs" />
     <Compile Include="Input\IKeyListener.cs" />
     <Compile Include="Input\IMouseListener.cs" />
     <Compile Include="Gfx\GraphicsHelper.cs" />
+    <Compile Include="Main\AssetsLoader.cs" />
+    <Compile Include="MyAssetsLoader.cs" />
     <Compile Include="Physics\IBox.cs" />
     <Compile Include="Scene\GameOverScene.cs" />
     <Compile Include="Scene\GamePlayScene.cs" />

@@ -48,10 +48,10 @@ namespace Hweny.FlappyGuy.Scene
             g.Clear(Color.Black);
 
             if (state==LogoState.FadeIn)
-                GraphicsHelper.DrawImage(g, MyGame.ASSETS_LOGO,50, 40,rotate, alpha, alpha);
+                GraphicsHelper.DrawImage(g, MyGame.Assets.GetImage(MyAssetsLoader.IM_LOGO),50, 40,rotate, alpha, alpha);
 
             if (state == LogoState.FadeOut)
-                GraphicsHelper.DrawImage(g, MyGame.ASSETS_LOGO,50, 40, rotate, 1f, alpha);
+                GraphicsHelper.DrawImage(g, MyGame.Assets.GetImage(MyAssetsLoader.IM_LOGO), 50, 40, rotate, 1f, alpha);
 
             if (textIndex > 0)
             {

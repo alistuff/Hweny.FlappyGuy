@@ -7,22 +7,19 @@ using System.Drawing;
 
 namespace Hweny.FlappyGuy.Entity
 {
-    public class Foreground : GameEntity, IBoundingBox
+    public class Foreground : Sprite, IBoundingBox
     {
-        private const float SPEED = -80.5f;
-
-        private float speed;
         public Foreground(float speed)
-            : base()
+            : base(MyGame.Assets.GetImage(MyAssetsLoader.IM_GROUND))
         {
-            this.speed = speed;
-            this.Y = MyGame.HEIGHT - MyGame.ASSETS_GROUND.Height;
+            this.VelocityX = speed;
+            this.Y = MyGame.HEIGHT - Surface.Height;
         }
 
         public override void Update(float gameTime, float elapsedSeconds)
         {
-            this.X += speed * elapsedSeconds;
-            if (this.X <= -MyGame.ASSETS_GROUND.Width)
+            base.Update(gameTime, elapsedSeconds);
+            if (this.X <= -Surface.Width)
             {
                 this.X = 0;
             }
@@ -34,20 +31,20 @@ namespace Hweny.FlappyGuy.Entity
 
             g.DrawImage
             (
-                MyGame.ASSETS_GROUND,
+                Surface,
                 X,
                 Y,
-                MyGame.ASSETS_GROUND.Width,
-                MyGame.ASSETS_GROUND.Height
+                Surface.Width,
+                Surface.Height
             );
 
             g.DrawImage
             (
-                MyGame.ASSETS_GROUND,
-                X + MyGame.ASSETS_GROUND.Width - 1,
+                Surface,
+                X + Surface.Width - 1,
                 Y,
-                MyGame.ASSETS_GROUND.Width,
-                MyGame.ASSETS_GROUND.Height
+                Surface.Width,
+                Surface.Height
             );
         }
 
@@ -55,8 +52,8 @@ namespace Hweny.FlappyGuy.Entity
         {
             get
             {
-                Rectangle boundingBox = new Rectangle(0, MyGame.HEIGHT - MyGame.ASSETS_GROUND.Height+20,
-                    MyGame.ASSETS_GROUND.Width, MyGame.ASSETS_GROUND.Height);
+                Rectangle boundingBox = new Rectangle(0, MyGame.HEIGHT - Surface.Height + 20,
+                    Surface.Width, Surface.Height);
                 return boundingBox;
             }
         }

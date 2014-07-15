@@ -6,7 +6,7 @@ using Hweny.FlappyGuy.Scene;
 
 namespace Hweny.FlappyGuy.Entity
 {
-    public class Player : GameEntity,IBoundingBox
+    public class Player : Sprite, IBoundingBox
     {
         private IList<GameEntity> worldObjs;
         //physics
@@ -15,8 +15,6 @@ namespace Hweny.FlappyGuy.Entity
         private const float RISE_ROTATE = -10f;
         private const float DOWN_ROTATE = 30;
 
-        private float rotate;
-        private float velocityY;
         private int width;
         private int height;
 
@@ -32,10 +30,10 @@ namespace Hweny.FlappyGuy.Entity
         private bool isDie = false;
 
         public Player(GamePlayScene world)
-            : base()
+            : base(MyGame.Assets.GetImage(MyAssetsLoader.IM_PLAYER))
         {
-            width = MyGame.ASSETS_PLAYER.Width / NUM_OF_FRAMERS;
-            height = MyGame.ASSETS_PLAYER.Height;
+            width = Surface.Width / NUM_OF_FRAMERS;
+            height = Surface.Height;
 
             this.worldObjs = world.WorldObjs;
             Reset();
@@ -54,22 +52,24 @@ namespace Hweny.FlappyGuy.Entity
             //player update
             if (!isHit && isFlap)
             {
-                rotate = RISE_ROTATE;
-                velocityY = LIFT;
+                Rotate = RISE_ROTATE;
+                VelocityY = LIFT;
                 isFlap = false;
             }
             else if (isHit && !isDie)
             {
-                velocityY = LIFT / 2;
+                VelocityY = LIFT / 2;
                 isDie = true;
             }
             else
             {
-                rotate += DOWN_ROTATE * elapsedSeconds;
+                Rotate += DOWN_ROTATE * elapsedSeconds;
             }
 
-            velocityY += GRAVITY * elapsedSeconds;
-            Y += velocityY * elapsedSeconds;
+            VelocityY += GRAVITY * elapsedSeconds;
+            // Y += velocityY * elapsedSeconds;
+
+            base.Update(gameTime, elapsedSeconds);
 
             //collision check
             if (!isHit)
@@ -80,40 +80,35 @@ namespace Hweny.FlappyGuy.Entity
                 }
             }
         }
-
         public override void Render(Graphics g)
         {
             GraphicsHelper.DrawImage
             (
-                g, 
-                MyGame.ASSETS_PLAYER,
+                g,
+                Surface,
                 new RectangleF(X, Y, width, height),
                 new RectangleF(currentFrame * width, 0, width, height),
-                rotate
+                Rotate
             );
         }
-
         public void Reset()
         {
             X = 100;
             Y = 80;
-            velocityY = 0;
-            rotate = 0;
+            VelocityY = 0;
+            Rotate = 0;
             isFlap = false;
             isHit = false;
             isDie = false;
         }
-
         public void Flap()
         {
             isFlap = true;
         }
-
         public bool IsDie()
         {
             return isDie;
         }
-
         public Rectangle BoundingBox
         {
             get

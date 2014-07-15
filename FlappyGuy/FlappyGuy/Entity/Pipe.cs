@@ -7,10 +7,8 @@ using Hweny.FlappyGuy.Physics;
 
 namespace Hweny.FlappyGuy.Entity
 {
-    public class Pipe:GameEntity,IBoundingBox
+    public class Pipe : Sprite, IBoundingBox
     {
-        private float speed;
-
         public bool IsCheck
         {
             get;
@@ -18,19 +16,9 @@ namespace Hweny.FlappyGuy.Entity
         }
 
         public Pipe(int x, int y, float speed)
-            : base(x, y)
+            : base(MyGame.Assets.GetImage(MyAssetsLoader.IM_PIPE), x, y)
         {
-            this.speed = speed;
-        }
-
-        public override void Update(float gameTime, float elapsedSeconds)
-        {
-            X += speed * elapsedSeconds;
-        }
-
-        public override void Render(Graphics g)
-        {
-            g.DrawImage(MyGame.ASSETS_PIPE, X, Y, MyGame.ASSETS_PIPE.Width, MyGame.ASSETS_PIPE.Height);
+            this.VelocityX = speed;
         }
 
         public Rectangle BoundingBox
@@ -39,10 +27,10 @@ namespace Hweny.FlappyGuy.Entity
             {
                 Rectangle boundingBox = Rectangle.Empty;
                 boundingBox.X = (int)X;
-                boundingBox.Y = Math.Max(0,(int)Y);
-                boundingBox.Width = MyGame.ASSETS_PIPE.Width;
+                boundingBox.Y = Math.Max(0, (int)Y);
+                boundingBox.Width = Surface.Width;
                 if (Y < 0)
-                    boundingBox.Height = MyGame.ASSETS_PIPE.Height + (int)Y;
+                    boundingBox.Height = Surface.Height + (int)Y;
                 else
                     boundingBox.Height = MyGame.HEIGHT - (int)Y;
                 boundingBox.Inflate(-4, -4);
