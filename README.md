@@ -3,7 +3,6 @@
 
 **e-mail：alistuff#163.com (`#` to `@`)**
 
-<a href="www.alistuff.com" target="_blank">www.alistuff.com</a>
 ##Implementation
 * Microsoft Visual Studio 2010 + .Net framework 4.0
 * C#
